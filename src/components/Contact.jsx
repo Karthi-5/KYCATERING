@@ -2,6 +2,9 @@
 import React from 'react';
 
 const Contact = () => {
+  const address = "No. 13/8, Pugazhendhi Street, MGR Nagar, K. K. Nagar, Chennai - 600078";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -29,8 +32,15 @@ const Contact = () => {
               <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             </div>
             <h3>Address | முகவரி</h3>
-            <a href="https://www.google.com/maps/search/?api=1&query=No.+13/8,+Pugazhendhi+Street,+MGR+Nagar,+K.+K.+Nagar,+Chennai+-+600078" target="_blank" rel="noopener noreferrer">
-            <p>No. 13/8, Pugazhendhi Street,<br />MGR Nagar, K. K. Nagar,<br />Chennai - 600078</p>
+            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+              <p>No. 13/8, Pugazhendhi Street,<br />MGR Nagar, K. K. Nagar,<br />Chennai - 600078</p>
+            </a>
+          </div>
+           <div className="contact-card floating map" style={{ animationDelay: '0.6s' }}>
+            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+              <div className="map-container">
+                <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${encodeURIComponent(address)}&zoom=15&size=400x300&maptype=roadmap&markers=color:red%7Clabel:S%7C${encodeURIComponent(address)}`} alt="Location on Google Maps" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
             </a>
           </div>
         </div>
